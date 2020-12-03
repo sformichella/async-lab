@@ -1,7 +1,4 @@
-const fsPromises = require('fs').promises;
 const { getCharacter } = require('./rickAndMortyAPI');
-
-const exampleFile = './copy-example.txt';
 
 
 describe('getCharacter', () => {
@@ -12,5 +9,19 @@ describe('getCharacter', () => {
     const { name: actualName } = await getCharacter(id);
 
     expect(actualName).toEqual(expectedName)
+  });
+
+  it('should return the correct format', async () => {
+    const id = 1;
+
+    const expected = {
+      name: "Rick Sanchez",
+      status: "Alive",
+      species: "Human"
+    }
+
+    const actual = await getCharacter(id);
+
+    expect(actual).toEqual(expected);
   });
 });
