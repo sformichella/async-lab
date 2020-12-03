@@ -23,7 +23,11 @@ const reverseString = input => {
 }
 
 const transformer = filePath => {
-
+  return fsPromises.readFile(filePath, 'utf-8')
+    .then(result => removeCapitals(result))
+    .then(result => capitalize(result))
+    .then(result => reverseString(result))
+    .catch(err => console.log(err))
 }
 
 module.exports = {
