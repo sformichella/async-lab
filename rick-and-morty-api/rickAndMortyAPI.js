@@ -1,9 +1,10 @@
 const fetch = require('node-fetch');
 
-const getCharacter = id => {
-  return fetch(`https://rickandmortyapi.com/api/character/${id}`)
-    .then(result => result.json())
-    .then(result => mungeData(result))
+const getCharacter = async (id) => {
+  const data = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+  const json = await data.json();
+
+  return mungeData(json);
 }
 
 const mungeData = data => {
