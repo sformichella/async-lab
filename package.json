@@ -24,6 +24,7 @@
     "jest": "^26.6.3"
   },
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1"
   }
 }
